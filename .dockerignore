@@ -1,0 +1,15 @@
+.idea/
+.venv/
+.pytest_cache/
+.git/
+
+**/__pycache__/
+**/*.pyc
+
+database/*.sqlite
+*.sqlite
+
+tests/
+
+README.md
+AI_LOG.md

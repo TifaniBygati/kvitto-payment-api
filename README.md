@@ -63,10 +63,46 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## Запуск приложения
+## Запуск
+
+### Локальный запуск
+
+Создать виртуальное окружение:
 
 ```bash
-uvicorn main:app --reload
+python -m venv .venv
+```
+
+#### Windows PowerShell
+
+Если PowerShell запрещает запуск скрипта активации, разрешить его только для текущей сессии:
+
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+Активировать виртуальное окружение:
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+#### Linux / macOS
+
+```bash
+source .venv/bin/activate
+```
+
+Установить зависимости:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+Запустить приложение:
+
+```bash
+python -m uvicorn main:app --reload
 ```
 
 После запуска API будет доступен по адресу:
@@ -79,6 +115,34 @@ Swagger UI:
 
 ```text
 http://127.0.0.1:8000/docs
+```
+
+### Запуск через Docker
+
+Проект также можно запустить через Docker Compose.
+
+Сборка и запуск:
+
+```bash
+docker compose up --build
+```
+
+После запуска API будет доступен по адресу:
+
+```text
+http://127.0.0.1:8000
+```
+
+Swagger UI:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+Остановка контейнера:
+
+```bash
+docker compose down
 ```
 
 SQLite-база данных и необходимые таблицы создаются автоматически при запуске приложения.
